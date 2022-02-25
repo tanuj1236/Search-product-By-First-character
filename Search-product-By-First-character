@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter</title>
+  </head>
+  <body>
+    
+<input type="text" id="funny" onkeyup="funtime()">
+    <span id="msg"></span>
+    <script>
+      var emp = [
+        { cname: "vivo", price: 12000, pname: "mobile" },
+        { cname: "samsung", price: 15000, pname: "mobile" },
+        { cname: "apple", price: 13000, pname: "mobile" },
+        { cname: "oppo", price: 19000, pname: "mobile" },
+        { cname: "nokia", price: 11000, pname: "mobile" },
+        { cname: "vivo", price: 12000, pname: "tablet" },
+        { cname: "samsung", price: 15000, pname: "tablet" },
+        { cname: "apple", price: 13000, pname: "tablet" },
+        { cname: "oppo", price: 19000, pname: "tablet" },
+        { cname: "nokia", price: 11000, pname: "tablet" },
+        { cname: "vivo", price: 12000, pname: "tv" },
+        { cname: "samsung", price: 15000, pname: "tv" },
+        { cname: "apple", price: 13000, pname: "tv" },
+        { cname: "oppo", price: 19000, pname: "tv" },
+        { cname: "nokia", price: 11000, pname: "tv" },
+      ];
+      
+       function funtime ()
+      {
+        let tbl="<table border='1' width=600><tr><th>Name</th><th>Price</th><th>Pname</th></tr>" 
+       var tan =document.getElementById("funny").value
+       {
+           var filterproducts = emp.filter(function(x)
+           {
+               if(x.cname.startsWith(tan))
+               {
+                   return x;
+               }
+           })
+      filterproducts.forEach(function(getvalue)
+      {
+          tbl+=`<tr><th>${getvalue.cname}</th><th>${getvalue.price}</th><th>${getvalue.pname}</th></tr>`
+      })
+     document.getElementById("msg").innerHTML=tbl;
+       }
+      }
+      
+    </script>
+  </body>
+</html>
